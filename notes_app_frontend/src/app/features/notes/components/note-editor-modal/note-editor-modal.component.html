@@ -1,0 +1,30 @@
+<div class="backdrop" *ngIf="open" (click)="onCancel()" aria-hidden="true"></div>
+<div
+  class="modal"
+  role="dialog"
+  aria-modal="true"
+  aria-labelledby="noteEditorTitle"
+  *ngIf="open"
+>
+  <form (ngSubmit)="onSubmit()" [formGroup]="form" class="panel" (click)="$event.stopPropagation()">
+    <div class="panel-header">
+      <h2 id="noteEditorTitle">{{ note ? 'Edit Note' : 'New Note' }}</h2>
+    </div>
+    <div class="panel-body">
+      <label for="title">Title</label>
+      <input id="title" #titleInput type="text" formControlName="title" required placeholder="Note title" />
+
+      <label for="content">Content</label>
+      <textarea id="content" rows="8" formControlName="content" placeholder="Write your note..."></textarea>
+
+      <label for="tags">Tags (comma separated)</label>
+      <input id="tags" type="text" formControlName="tags" placeholder="e.g., Work, Ideas" />
+    </div>
+    <div class="panel-footer">
+      <button type="button" class="ghost" (click)="onCancel()">Cancel</button>
+      <button type="submit" class="btn-primary" [disabled]="form.invalid">
+        {{ note ? 'Save Changes' : 'Create Note' }}
+      </button>
+    </div>
+  </form>
+</div>

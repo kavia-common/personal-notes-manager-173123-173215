@@ -1,0 +1,16 @@
+<a class="card" [routerLink]="['/notes', note.id]" [attr.aria-label]="'Open note ' + note.title">
+  <div class="card-header">
+    <h3 class="title">{{ note.title }}</h3>
+    <div class="actions">
+      <button class="ghost" (click)="onEdit($event)" aria-label="Edit note">Edit</button>
+      <button class="danger" (click)="onDelete($event)" aria-label="Delete note">Delete</button>
+    </div>
+  </div>
+  <p class="content">{{ note.content || 'No content' }}</p>
+  <div class="meta">
+    <span class="date">Updated {{ note.updatedAt | date:'medium' }}</span>
+    <div class="tags" *ngIf="note.tags?.length">
+      <span class="tag" *ngFor="let t of note.tags">{{ t }}</span>
+    </div>
+  </div>
+</a>

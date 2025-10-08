@@ -1,0 +1,11 @@
+<aside class="sidebar" aria-label="Tags sidebar">
+  <div class="section-title">Tags</div>
+  <ul class="tags">
+    <li>
+      <button class="tag" [class.active]="isActive(null)" (click)="choose(null)">All</button>
+    </li>
+    <li *ngFor="let t of tagsSig()">
+      <button class="tag" [class.active]="isActive(t)" (click)="choose(t)">{{ t }}</button>
+    </li>
+  </ul>
+</aside>

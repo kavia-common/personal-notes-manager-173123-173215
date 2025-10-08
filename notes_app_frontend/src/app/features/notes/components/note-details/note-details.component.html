@@ -1,0 +1,35 @@
+<app-navbar [(model)]="search" (add)="openEdit()"></app-navbar>
+
+<main class="details">
+  <div class="panel" *ngIf="note(); else notFound">
+    <div class="header">
+      <h2>{{ note()?.title }}</h2>
+      <div class="actions">
+        <button class="ghost" (click)="openEdit()">Edit</button>
+        <button class="danger" (click)="onDelete()">Delete</button>
+      </div>
+    </div>
+    <div class="meta">
+      <span>Updated {{ note()?.updatedAt | date:'medium' }}</span>
+      <div class="tags" *ngIf="note()?.tags?.length">
+        <span class="tag" *ngFor="let t of note()?.tags">{{ t }}</span>
+      </div>
+    </div>
+    <div class="content">
+      <pre>{{ note()?.content || 'No content' }}</pre>
+    </div>
+  </div>
+
+  <ng-template #notFound>
+    <div class="panel">
+      <p>Note not found.</p>
+    </div>
+  </ng-template>
+</main>
+
+<app-note-editor-modal
+  [open]="modalOpen()"
+  [note]="note()"
+  (save)="onSave($event)"
+  (cancel)="onCancel()"
+></app-note-editor-modal>

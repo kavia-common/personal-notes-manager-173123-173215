@@ -1,0 +1,81 @@
+.card {
+  display: block;
+  text-decoration: none;
+  background: var(--surface);
+  color: var(--text);
+  border: 1px solid var(--border);
+  border-radius: var(--radius-lg);
+  padding: 0.875rem 1rem;
+  box-shadow: var(--shadow-xs);
+  transition: transform 0.06s ease, box-shadow 0.2s ease, border-color 0.2s ease;
+
+  &:hover {
+    border-color: color-mix(in srgb, var(--primary) 40%, var(--border));
+    box-shadow: var(--shadow-sm);
+    transform: translateY(-1px);
+  }
+}
+
+.card-header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: .5rem;
+
+  .title {
+    font-size: 1rem;
+    font-weight: 600;
+    margin: 0;
+  }
+
+  .actions {
+    display: flex;
+    gap: .5rem;
+
+    .ghost {
+      background: transparent;
+      border: 1px solid var(--border);
+      color: var(--text);
+      padding: 0.25rem 0.5rem;
+      border-radius: var(--radius-md);
+      cursor: pointer;
+    }
+    .danger {
+      background: var(--error);
+      border: none;
+      color: white;
+      padding: 0.25rem 0.5rem;
+      border-radius: var(--radius-md);
+      cursor: pointer;
+    }
+  }
+}
+
+.content {
+  margin: 0.25rem 0 0.5rem 0;
+  color: color-mix(in srgb, var(--text) 85%, #0000);
+  font-size: .95rem;
+  line-height: 1.35rem;
+  max-height: 4.1rem;
+  overflow: hidden;
+}
+
+.meta {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  font-size: .8rem;
+  color: color-mix(in srgb, var(--text) 70%, #0000);
+
+  .tags {
+    display: flex;
+    gap: 0.25rem;
+    .tag {
+      background: color-mix(in srgb, var(--secondary) 18%, var(--background));
+      color: var(--text);
+      border: 1px solid color-mix(in srgb, var(--secondary) 50%, var(--border));
+      border-radius: 999px;
+      padding: 0.1rem 0.5rem;
+    }
+  }
+}

@@ -1,0 +1,20 @@
+<nav class="navbar">
+  <div class="brand">
+    <span class="logo">🗒️</span>
+    <span class="title">Personal Notes</span>
+  </div>
+  <div class="actions">
+    <div class="search">
+      <input
+        type="text"
+        [value]="search"
+        (input)="onInput($event)"
+        placeholder="Search notes..."
+        aria-label="Search notes"
+      />
+    </div>
+    <button class="btn-primary" type="button" (click)="onAdd()" aria-label="Add new note">
+      + New Note
+    </button>
+  </div>
+</nav>

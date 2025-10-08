@@ -1,0 +1,33 @@
+<app-navbar [model]="search()" (modelChange)="search.set($event)" (add)="openCreate()"></app-navbar>
+
+<div class="layout">
+  <app-sidebar [active]="activeTag()" (activeChange)="activeTag.set($event)"></app-sidebar>
+
+  <main class="content">
+    <div class="list-header">
+      <h2>Notes</h2>
+      <span class="muted">{{ filtered().length }} result{{ filtered().length === 1 ? '' : 's' }}</span>
+    </div>
+
+    <div class="grid">
+      <app-note-card
+        *ngFor="let note of filtered()"
+        [note]="note"
+        (edit)="openEdit($event)"
+        (delete)="deleteNote($event)"
+      ></app-note-card>
+    </div>
+
+    <div class="empty" *ngIf="!filtered().length">
+      <p>No notes found. Try clearing filters or create a new note.</p>
+      <button class="btn-primary" (click)="openCreate()">+ New Note</button>
+    </div>
+  </main>
+</div>
+
+<app-note-editor-modal
+  [open]="modalOpen()"
+  [note]="editingNote()"
+  (save)="handleSave($event)"
+  (cancel)="handleCancel()"
+></app-note-editor-modal>

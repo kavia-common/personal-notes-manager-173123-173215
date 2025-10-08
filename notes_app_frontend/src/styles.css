@@ -1,12 +1,40 @@
-/* Global styles for minimalistic design */
-* {
-  margin: 0;
-  padding: 0;
-  box-sizing: border-box;
+/* Ocean Professional Theme Variables */
+:root {
+  --primary: #2563EB;
+  --secondary: #F59E0B;
+  --success: #F59E0B;
+  --error: #EF4444;
+  --background: #f9fafb;
+  --surface: #ffffff;
+  --text: #111827;
+
+  --border: #e5e7eb;
+  --radius-md: 10px;
+  --radius-lg: 14px;
+  --radius-xl: 18px;
+
+  --shadow-xs: 0 1px 2px rgba(0,0,0,0.06);
+  --shadow-sm: 0 3px 6px rgba(0,0,0,0.08);
+  --shadow-md: 0 10px 16px rgba(0,0,0,0.10);
 }
 
-html, body {
-  height: 100%;
-  background-color: #ffffff;
+/* Reset */
+* { margin: 0; padding: 0; box-sizing: border-box; }
+html, body { height: 100%; }
+body {
+  background: linear-gradient(180deg, rgba(37,99,235,0.06), rgba(249,250,251,1));
+  color: var(--text);
   font-family: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Helvetica, Arial, sans-serif;
+}
+
+/* Links reset */
+a { color: inherit; }
+
+/* Utility buttons */
+button { font: inherit; }
+
+/* App container helpers */
+.app-shell {
+  min-height: 100dvh;
+  background: var(--background);
 }
